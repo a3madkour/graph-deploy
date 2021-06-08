@@ -55,7 +55,7 @@ function App() {
           <select name="graphs_menu" id="graphs_menu" onChange={handleChange}>
               {makeGraphs()}
           </select>
-          <GraphComponent graph={emptyGraph} letter={emptyLetter} manipulate={false}/>
+          <GraphComponent graph={state.currentGraph} letter={emptyLetter} manipulate={false}/>
       </div>
   );
 }
