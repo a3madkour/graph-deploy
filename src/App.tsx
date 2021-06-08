@@ -1,25 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import React from 'react';
+import './App.css';
+import {GraphComponent} from "./graph.component"
+import { IGraph } from './util/graph';
+import graphs from './graphs.json';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const emptyGraph: IGraph =
+  {
+    nodes: [
+      {
+        label: 'Start',
+        id: 'dceb748f-7d66-4194-8200-a1e33fc4cb34',
+        abbrev: 'S'
+      },
+      {
+        label: 'End',
+        id: 'b0bd97f9-d157-489e-b443-4bdf89b1fd4d',
+        abbrev: 'E'
+      }
+
+    ],
+    edges: [
+      {
+        from: 'dceb748f-7d66-4194-8200-a1e33fc4cb34',
+        to: 'b0bd97f9-d157-489e-b443-4bdf89b1fd4d',
+        id: '20246849-4cf3-4d22-b1e5-f49577f054dc'
+      }
+    ]
+  }
+  const emptyLetter = {
+    label: "",
+    abbrev: "",
+    terminality: false
+  }
+    const [state, setState] = React.useState({ currentGraph: graphs["graph_0"] });
+
+    const makeGraphs = () => {
+        var returnValue:any[] = []
+        for (var graph_name in graphs){
+            returnValue.push(
+                <option value={graph_name}>{graph_name}</option>
+            )
+        }
+        return returnValue
+    }
+
+    const handleChange = (e:any) =>{
+        console.log()
+        const select_str:keyof typeof graphs = e.target.value
+        setState({currentGraph: graphs[select_str]})
+    }
+    return (
+      <div>
+          <select name="graphs_menu" id="graphs_menu" onChange={handleChange}>
+              {makeGraphs()}
+          </select>
+          <GraphComponent graph={emptyGraph} letter={emptyLetter} manipulate={false}/>
+      </div>
   );
 }
 
