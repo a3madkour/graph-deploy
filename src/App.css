@@ -13,12 +13,7 @@ body {
 
 .graphWindow {
   border: 2px solid black;
-  height: 90vh;
-  width: 100%;
-}
-.samplesWindow {
-  border: 2px solid black;
-  overflow: scroll;
+  height: 100%;
 }
 .container {
   height: 100%;
@@ -32,26 +27,21 @@ body {
 
 .grammarContainer {
   width:100vw;
-  height:50vh;
+  height:30vh;
   margin: auto;
 }
 .grammarAxiom {
-  float: right;
-  width: 50%;
-  height: 90%;
-}
-.grammarAlphabet {
-  float: left;
-  width: 49%;
+  margin-left:32%;
+  width: 35%;
   height: 100%;
 }
 
 .rule {
-  height: 50vh;
-  max-height: 50vh;
+  height: 80vh;
+  max-height: 80vh;
 }
 .gridElement {
-  height: 40vh;
+  height: 65vh;
   width: 35vw;
 }
 .content {
@@ -60,39 +50,3 @@ body {
   width: 80vw;
 }
 
-.left {
-  float: "left";
-}
-
-.right {
-  float: "right";
-}
-
-.lhs {
-  bottom: 10px;
-  right: 20px;
-}
-.center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
-
-.sample {
-  height: 100%;
-  width: 100%;
-}
-
-.addAlphabet {
-  margin: auto;
-  width: 100%;
-  padding: 10px;
-}
-.alphabetView {
-  height: 100%;
-  display:flex;
-  flex-wrap: wrap;
-  border: 2px solid black;
-  overflow: scroll;
-
-}

@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useContext } from 'react';
 import { Network } from "vis-network/standalone/esm/vis-network"
-import { Letter } from './util/alphabet';
-import { IGraph } from './util/graph';
+import { Letter } from '../util/alphabet';
+import { IGraph } from '../util/graph';
 
 interface Props {
     graph: IGraph,
@@ -12,7 +12,7 @@ interface Props {
     letter: Letter
 }
 
-export function GraphComponent(props: Props) {
+export default function GraphComponent(props: Props) {
 
     const myRef = createRef<HTMLDivElement>();
     const largeHeight = props.height == null ? 100 : props.height
@@ -140,11 +140,6 @@ export function GraphComponent(props: Props) {
         return data
     }
 
-    const graphs = ["first", "second", "third"]
-
-    const handleChange = (e:any) =>{
-        return
-    }
     useEffect(() => {
 
         var divElement = myRef.current
